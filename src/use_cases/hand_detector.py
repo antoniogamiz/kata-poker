@@ -5,16 +5,33 @@ from src.entities.hand import Hand
 class HandDetector:
     def detect_hand(self, hand: [Card]):
         hand_type = self._detect_royal_flush(hand)
+        hand_type = hand_type or self._detect_four_of_a_kind(hand)
         return hand_type or Hand.Empty
 
     def _detect_royal_flush(self, hand: [Card]):
         ordered_hand = hand.sort(key=lambda x: x.number)
-        cards_ids = [card.number for card in hand]
-        if cards_ids[0] == 0 and self._check_integer_ascending_sequence(cards_ids[1:]) or self._check_integer_ascending_sequence(cards_ids):
+        card_numbers = [card.number for card in hand]
+        if card_numbers[0] == 0 and self._check_integer_ascending_sequence(card_numbers[1:]) or self._check_integer_ascending_sequence(card_numbers):
             return Hand.RoyalFlush
-
-        return None
 
     def _check_integer_ascending_sequence(self, array):
         normalized_array = [array[i] - array[0] - i for i in range(len(array))]
         return len(set(normalized_array)) == 1
+
+    def _detect_four_of_a_kind(self, hand):
+        card_numbers = [card.number for card in hand]
+        number_ocurrences = self._count_ocurrences_in_list(card_numbers)
+
+        if len(number_ocurrences.keys()) != 2:
+            return None
+
+        n1, n2 = number_ocurrences.keys()
+        if number_ocurrences[n1] == 4 and number_ocurrences[n2] == 1 or \
+                number_ocurrences[n1] == 1 and number_ocurrences[n2] == 4:
+            return Hand.FourOfAKind
+
+    def _count_ocurrences_in_list(self, l):
+        ocurrences = {}
+        for i in l:
+            ocurrences[i] = ocurrences.get(i, 0) + 1
+        return ocurrences
