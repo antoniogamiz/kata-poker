@@ -15,6 +15,7 @@ class CardSuit:
 class Card:
     suit: CardSuit
     number: CardNumber
+    value: int
 
 
 @dataclass(frozen=True)
@@ -24,9 +25,12 @@ class Deck:
 
 def createPokerDeck():
     suits = range(4)
-    numbers = range(13)
     cards: [Card] = []
     for suit in suits:
-        for number in numbers:
-            cards.append(Card(suit, number))
+        id = 0
+        cards.append(Card(suit, id, 12))
+        id += 1
+        for number in range(12):
+            cards.append(Card(suit, id, number))
+            id += 1
     return Deck(cards)
