@@ -13,11 +13,10 @@ class TestDetectHandUseCase(unittest.TestCase):
         expected_hand = self.hand_detector.detect_hand(hand)
         self.assertEqual(expected_hand, Hand.RoyalFlush)
 
-    # TODO: this is straight flush
-    def test_best_royal_flush(self):
-        hand = self._create_best_royal_flush()
+    def test_straight_flush(self):
+        hand = self._create_straight_flush()
         expected_hand = self.hand_detector.detect_hand(hand)
-        self.assertEqual(expected_hand, Hand.RoyalFlush)
+        self.assertEqual(expected_hand, Hand.StraightFlush)
 
     def test_unordered_royal_flush(self):
         hand = self._create_unordered_royal_flush()
@@ -37,7 +36,7 @@ class TestDetectHandUseCase(unittest.TestCase):
     def _create_royal_flush(self):
         return [Card(1, i, 0) for i in range(5)]
 
-    def _create_best_royal_flush(self):
+    def _create_straight_flush(self):
         hand = [Card(1, i+9, 0) for i in range(4)]
         hand.append(Card(1, 0, 0))
         return hand

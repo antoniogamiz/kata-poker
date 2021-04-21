@@ -4,15 +4,22 @@ from src.entities.hand import Hand
 
 class HandDetector:
     def detect_hand(self, hand: [Card]):
-        hand_type = self._detect_royal_flush(hand)
-        hand_type = hand_type or self._detect_four_of_a_kind(hand)
+        hand_type = self._detect_royal_flush(hand) or \
+            self._detect_straight_flush(hand) or \
+            self._detect_four_of_a_kind(hand)
         return hand_type or Hand.Empty
 
     def _detect_royal_flush(self, hand: [Card]):
         ordered_hand = hand.sort(key=lambda x: x.number)
         card_numbers = [card.number for card in hand]
-        if card_numbers[0] == 0 and self._check_integer_ascending_sequence(card_numbers[1:]) or self._check_integer_ascending_sequence(card_numbers):
+        if self._check_integer_ascending_sequence(card_numbers):
             return Hand.RoyalFlush
+
+    def _detect_straight_flush(self, hand: [Card]):
+        ordered_hand = hand.sort(key=lambda x: x.number)
+        card_numbers = [card.number for card in hand]
+        if card_numbers[0] == 0 and self._check_integer_ascending_sequence(card_numbers[1:]):
+            return Hand.StraightFlush
 
     def _check_integer_ascending_sequence(self, array):
         normalized_array = [array[i] - array[0] - i for i in range(len(array))]
