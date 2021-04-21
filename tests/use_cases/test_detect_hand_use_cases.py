@@ -28,6 +28,11 @@ class TestDetectHandUseCase(unittest.TestCase):
         expected_hand = self.hand_detector.detect_hand(hand)
         self.assertEqual(expected_hand, Hand.FourOfAKind)
 
+    def test_full_house(self):
+        hand = self._create_full_house()
+        expected_hand = self.hand_detector.detect_hand(hand)
+        self.assertEqual(expected_hand, Hand.FullHouse)
+
     def test_empty_hand(self):
         hand = self._create_empty_hand()
         expected_hand = self.hand_detector.detect_hand(hand)
@@ -50,4 +55,10 @@ class TestDetectHandUseCase(unittest.TestCase):
     def _create_poker(self):
         hand = [Card(i, 1, 0) for i in range(4)]
         hand.append(Card(1, 0, 0))
+        return hand
+
+    def _create_full_house(self):
+        hand = [Card(i, 10, 0) for i in range(3)]
+        hand.append(Card(1, 9, 0))
+        hand.append(Card(2, 9, 0))
         return hand
