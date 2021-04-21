@@ -23,6 +23,13 @@ class HandFactory:
                 Card(1, 11, 10),
                 Card(1, 12, 11)]
 
+    def create_lower_straight_flush(self):
+        return [Card(1, 7, 6),
+                Card(1, 8, 7),
+                Card(1, 9, 8),
+                Card(1, 10, 9),
+                Card(1, 11, 10)]
+
     def create_unordered_royal_flush(self):
         return [Card(1, 0, 12),
                 Card(1, 9, 8),

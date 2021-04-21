@@ -12,3 +12,6 @@ class Hand(Enum):
     TwoPair = 3
     OnePair = 2
     HighCard = 1
+
+    def __gt__(self, b):
+        return self.value > b.value
