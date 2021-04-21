@@ -26,14 +26,14 @@ class HandComparator:
             i for i, val in enumerate(detected_hands) if val == highest_hand_type]
 
     @classmethod
+    def _detect_hands(cls, hands: [[Card]]):
+        hand_detector = HandDetector()
+        return [hand_detector.detect_hand(hand) for hand in hands]
+
+    @classmethod
     def _find_highest_hand_type(cls, hand_types: [Hand]):
         return max(hand_types)
 
     @classmethod
     def _calculate_hand_value(cls, hand: [Card]):
         return sum([card.value for card in hand])
-
-    @classmethod
-    def _detect_hands(cls, hands: [[Card]]):
-        hand_detector = HandDetector()
-        return [hand_detector.detect_hand(hand) for hand in hands]
