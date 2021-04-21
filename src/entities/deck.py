@@ -18,12 +18,12 @@ class Card:
     value: int
 
 
-@dataclass(frozen=True)
+@dataclass
 class Deck:
     cards: [Card]
 
 
-def createPokerDeck():
+def create_poker_deck():
     suits = range(4)
     cards: [Card] = []
     for suit in suits:
