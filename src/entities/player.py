@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from src.entities.blind import Blind
 from src.entities.deck import Card
@@ -11,13 +11,10 @@ class NotEnoughMoney(Exception):
 @dataclass
 class Player:
     id: int
-    is_dealer: bool
-    blind: Blind
-    money: float
-    hand: [Card]
-
-    def __init__(self, money=0):
-        self.money = money
+    is_dealer: bool = False
+    blind: Blind = None
+    money: float = 0
+    hand: [Card] = field(default_factory=list)
 
     def retrieve_money(self, n):
         future_money = self.money - n
