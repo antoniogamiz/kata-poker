@@ -12,4 +12,3 @@ class Hand(Enum):
     TwoPair = 3
     OnePair = 2
     HighCard = 1
-    Empty = 0
