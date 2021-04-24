@@ -1,21 +1,34 @@
 from dataclasses import dataclass
+from enum import Enum
 
 
-@dataclass(frozen=True)
-class CardNumber:
-    id: int
+class Pip(Enum):
+    ACE = 14
+    TWO = 2
+    THIR = 3
+    FOUR = 4
+    FIVE = 5
+    SIX = 6
+    SEVEN = 7
+    EIGHT = 8
+    NINE = 9
+    TEN = 10
+    J = 11
+    Q = 12
+    K = 13
 
 
-@dataclass(frozen=True)
-class CardSuit:
-    id: int
+class Pip(Enum):
+    DIAMONDS = 1
+    CLUBS = 2
+    HEARTS = 3
+    SPADES = 4
 
 
 @dataclass(frozen=True)
 class Card:
-    suit: CardSuit
-    number: CardNumber
-    value: int
+    suit: Suit
+    number: Pip
 
 
 @dataclass
@@ -24,13 +37,9 @@ class Deck:
 
 
 def create_poker_deck():
-    suits = range(4)
     cards: [Card] = []
-    for suit in suits:
-        id = 0
-        cards.append(Card(suit, id, 12))
-        id += 1
-        for number in range(12):
-            cards.append(Card(suit, id, number))
-            id += 1
+    for suit in list(CardSuit):
+        print(suit)
+        for number in list(CardNumber):
+            cards.append(Card(suit, number))
     return Deck(cards)
