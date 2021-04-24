@@ -1,7 +1,7 @@
 from collections import Counter
 
-from src.entities.deck import Card, Suit, Pip
-from src.entities.hand import Hand
+from entities.deck import Card, Suit, Pip
+from entities.hand import Hand
 
 
 class HandParser:
