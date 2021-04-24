@@ -1,6 +1,6 @@
-from src.use_cases.dealer import Dealer
-from src.entities.player import Player
-from src.entities.blind import Blind
+from use_cases.dealer import Dealer
+from entities.player import Player
+from entities.blind import Blind
 
 
 class Board:

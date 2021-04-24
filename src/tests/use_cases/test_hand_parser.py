@@ -1,8 +1,8 @@
 import unittest
 
-from src.entities.deck import Suit, Pip, Card
-from src.entities.hand import Hand
-from src.use_cases.hand_parser import HandParser
+from entities.deck import Suit, Pip, Card
+from entities.hand import Hand
+from use_cases.hand_parser import HandParser
 from tests.utils.hand_factory import HandFactory
 
 

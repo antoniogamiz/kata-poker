@@ -1,7 +1,7 @@
 import unittest
 
-from src.use_cases.dealer import Dealer
-from src.entities.deck import Card
+from use_cases.dealer import Dealer
+from entities.deck import Card
 
 
 class TestDealer(unittest.TestCase):

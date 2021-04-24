@@ -1,7 +1,7 @@
 import unittest
 
-from src.entities.player import Player, NotEnoughMoney
-from src.entities.deck import Card
+from entities.player import Player, NotEnoughMoney
+from entities.deck import Card
 
 
 class TestPlayer(unittest.TestCase):

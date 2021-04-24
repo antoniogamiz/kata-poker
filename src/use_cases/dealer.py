@@ -1,4 +1,4 @@
-from src.entities.deck import Deck, create_poker_deck
+from entities.deck import Deck, create_poker_deck
 import random
 
 

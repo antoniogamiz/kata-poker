@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 
-from src.entities.blind import Blind
-from src.entities.deck import Card
+from entities.blind import Blind
+from entities.deck import Card
 
 
 class NotEnoughMoney(Exception):

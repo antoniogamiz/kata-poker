@@ -1,6 +1,6 @@
 import unittest
 
-from src.use_cases.hand_comparator import HandComparator
+from use_cases.hand_comparator import HandComparator
 from tests.utils.hand_factory import HandFactory
 
 

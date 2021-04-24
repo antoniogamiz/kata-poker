@@ -1,4 +1,4 @@
-from src.entities.deck import Card
+from entities.deck import Card
 
 
 class HandFactory:

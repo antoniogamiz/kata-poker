@@ -1,8 +1,8 @@
 import unittest
 
-from src.entities.player import Player
-from src.entities.blind import Blind
-from src.use_cases.board import Board, NoPlayersFound, NoEnoughPlayers
+from entities.player import Player
+from entities.blind import Blind
+from use_cases.board import Board, NoPlayersFound, NoEnoughPlayers
 
 
 class TestBoard(unittest.TestCase):
