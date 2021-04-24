@@ -18,7 +18,7 @@ class Pip(Enum):
     K = 13
 
 
-class Pip(Enum):
+class Suit(Enum):
     DIAMONDS = 1
     CLUBS = 2
     HEARTS = 3
@@ -28,7 +28,7 @@ class Pip(Enum):
 @dataclass(frozen=True)
 class Card:
     suit: Suit
-    number: Pip
+    pip: Pip
 
 
 @dataclass
