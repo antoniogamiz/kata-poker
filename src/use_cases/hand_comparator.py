@@ -1,6 +1,6 @@
 from entities.deck import Card
 from entities.hand import Hand
-from use_cases.hand_parser import HandParer
+from use_cases.hand_parser import HandParser
 
 
 class HandComparator:

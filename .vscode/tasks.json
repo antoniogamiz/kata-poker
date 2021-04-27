@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Tests",
+      "type": "shell",
+      "command": "PYTHONPATH=${workspaceRoot}/src python3 -m unittest",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Test file",
+      "type": "shell",
+      "command": "PYTHONPATH=${workspaceRoot}/src bash ${workspaceRoot}/scripts/run_test_file.sh ${relativeFile}",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/src"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
