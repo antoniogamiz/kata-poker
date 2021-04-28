@@ -5,7 +5,7 @@ from enum import Enum
 class Pip(Enum):
     ACE = 14
     TWO = 2
-    THIR = 3
+    THREE = 3
     FOUR = 4
     FIVE = 5
     SIX = 6
