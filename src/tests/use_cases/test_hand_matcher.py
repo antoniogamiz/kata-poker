@@ -117,15 +117,35 @@ class TestHandMatcher(unittest.TestCase):
         two_pair = '9♠ 10♣ 9♣ 10♠ Q♦'
         self._assert_winner(0, [three_of_a_kind, two_pair])
 
+    def test_two_pair_vs_two_pair_when_first_pair_is_higher(self):
+        high_two_pair = '8♠ J♣ 8♣ J♠ Q♦'
+        low_two_pair = '9♠ 10♣ 9♣ 10♠ Q♦'
+        self._assert_winner(0, [high_two_pair, low_two_pair])
+
+    def test_two_pair_vs_two_pair_when_second_pair_is_higher(self):
+        high_two_pair = '9♠ 6♣ 9♣ 6♠ Q♦'
+        low_two_pair = '9♠ 5♣ 9♣ 5♠ Q♦'
+        self._assert_winner(0, [high_two_pair, low_two_pair])
+
     def test_two_pair_vs_one_pair(self):
         two_pair = '9♠ 10♣ 9♣ 10♠ Q♦'
         one_pair = '9♠ 10♣ 8♣ 10♠ Q♦'
         self._assert_winner(0, [two_pair, one_pair])
 
+    def test_one_pair_vs_one_pair(self):
+        higher_one_pair = '9♠ 10♣ 8♣ Q♠ Q♦'
+        lower_one_pair = '9♠ 10♣ 8♣ 10♠ Q♦'
+        self._assert_winner(0, [higher_one_pair, lower_one_pair])
+
     def test_one_pair_vs_high_card(self):
         one_pair = '9♠ 10♣ 8♣ 10♠ Q♦'
         high_card = '5♠ 10♣ 8♣ 7♠ Q♦'
         self._assert_winner(0, [one_pair, high_card])
+
+    def test_high_card_vs_high_card(self):
+        highest_high_card = '5♠ 9♣ 8♣ 7♠ Q♦'
+        lowest_high_card = '5♠ 10♣ 8♣ 7♠ Q♦'
+        self._assert_winner(0, [highest_high_card, lowest_high_card])
 
     def _assert_winner(self, winner_index, hand):
         hand = [hand_string_to_hand_mapper(card) for card in hand]
