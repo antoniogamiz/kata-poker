@@ -3,26 +3,26 @@ from enum import Enum
 
 
 class Pip(Enum):
-    ACE = 14
-    TWO = 2
-    THREE = 3
-    FOUR = 4
-    FIVE = 5
-    SIX = 6
-    SEVEN = 7
-    EIGHT = 8
-    NINE = 9
-    TEN = 10
-    J = 11
-    Q = 12
-    K = 13
+    ACE = 2
+    TWO = 3
+    THREE = 5
+    FOUR = 7
+    FIVE = 11
+    SIX = 13
+    SEVEN = 17
+    EIGHT = 19
+    NINE = 23
+    TEN = 29
+    J = 31
+    Q = 37
+    K = 41
 
 
 class Suit(Enum):
-    DIAMONDS = 1
-    CLUBS = 2
-    HEARTS = 3
-    SPADES = 4
+    DIAMONDS = 0x0001
+    CLUBS = 0x0010
+    HEARTS = 0x0100
+    SPADES = 0x1000
 
 
 @dataclass(frozen=True)
@@ -34,12 +34,3 @@ class Card:
 @dataclass
 class Deck:
     cards: [Card]
-
-
-def create_poker_deck():
-    cards: [Card] = []
-    for suit in list(CardSuit):
-        print(suit)
-        for number in list(CardNumber):
-            cards.append(Card(suit, number))
-    return Deck(cards)
